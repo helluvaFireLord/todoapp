@@ -15,6 +15,7 @@ public class TodoList {
         }
     }
 
+
     public boolean remove(int index) {
         if (index >= 0 && index < items.size()) {
             items.remove(index);
