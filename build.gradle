@@ -55,16 +55,24 @@ tasks.build {
 }
 
 publishing {
-    publications{
-        mavenJava(MavenPublication){
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = project.group
+            artifactId = 'todoapp'
+            version = project.version
+        }
+    }
+
+    repositories {
+        maven {
             name = "GitHubPackages"
-            url = uri("https://github.com/helluvaFireLord/todo-app")
-            credentials{
+            url = uri("https://maven.pkg.github.com/helluvaFireLord/todo-app")
+            credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
                 password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-
             }
         }
-
     }
 }
