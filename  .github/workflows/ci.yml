@@ -31,8 +31,9 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*','**/gradlewrapper.properties') }}
-            restore-keys: |
+          restore-keys: |
             ${{ runner.os }}-gradle-
+
 
       - name: Get project version
         id: get_version
